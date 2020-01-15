@@ -2,6 +2,8 @@
 open source speech data processed for deepspeech2, download from `http://www.openslr.org/resources.php`.Please download data before 
 use this repository.
 
+## usage
+
 ### 1.MAGIC_DATA
 
 ```
@@ -32,11 +34,13 @@ $ sh STCMDS_2017.sh
 $ sh thch30_process.sh
 ```
 
-### aishell_1
+### 6.aishell_1
 
 ```
 $ sh aishell_1_process.sh
 ```
+
+## More info
 
 |data set|durations|wav_num|
 |--|--|--|
