@@ -3,9 +3,9 @@
 tar -xzvf data_aishell.tgz
 
 cd data_aishell
-
 cd wav
-files=$(ls $path)
+
+files=$(ls)
 for filename in $files
     # 
     do

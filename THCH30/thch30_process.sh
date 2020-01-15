@@ -1,6 +1,6 @@
 #! /usr/bin/bash
 
-cd THCH30
+tar -xzvf data_thchs30.tgz -C THCH30
 
-tar -xzvf data_thchs30.tgz
+python THCH30.py
 

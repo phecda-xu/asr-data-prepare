@@ -16,12 +16,12 @@ wav_path_list = []
 durations_list = []
 for wav_name in os.listdir(os.path.join(data_path, 'wav')):
     wav_list.append(wav_name)
-    with open(os.path.join(data_path, 'txt/{}'.format(wav_name.replace('wav','txt')))) as f:
+    with open(os.path.join(data_path, 'txt/{}'.format(wav_name.replace('wav', 'txt')))) as f:
         trans = f.readlines()[0]
         text_list.append(trans)
-        wav_path_list.append('wav/{}'.format(wav_name))
+        wav_path_list.append('ST-CMDS-20170001_1-OS/ST-CMDS-20170001_1-OS/wav/{}'.format(wav_name))
         sig, _ = sf.read(os.path.join(data_path, 'wav/{}'.format(wav_name)))
-        duration = round(len(sig)/16000.0,4)
+        duration = round(len(sig)/16000.0, 3)
         durations_list.append(duration)
 
 print("total file num is {}".format(len(wav_list)))
@@ -35,4 +35,4 @@ ST_data["durations"] = durations_list
 total_time = round(sum(ST_data["durations"])/3600.0, 2)
 print("total duration is {}".format(total_time))
 
-ST_data.to_csv(os.path.join(BASE_PATH, "ST-CMDS-2017.csv"))
+ST_data.to_csv(os.path.join(BASE_PATH, "ST-CMDS-2017.csv"), index=False)

@@ -14,3 +14,5 @@ tar -xzvf train_set.tar.gz -C magic_data/wav
 mv magic_data/wav/dev/TRANS.txt magic_data/transcript/dev_TRANS.txt
 mv magic_data/wav/test/TRANS.txt magic_data/transcript/test_TRANS.txt
 mv magic_data/wav/train/TRANS.txt magic_data/transcript/test_TRANS.txt
+
+python magic_data.py

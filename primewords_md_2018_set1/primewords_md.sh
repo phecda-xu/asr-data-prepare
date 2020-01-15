@@ -1,5 +1,6 @@
 #! /usr/bin/bash
 
+tar -xzvf primewords_md_2018_set1.tar.gz
 cd primewords_md_2018_set1
 
 mkdir wav
@@ -21,3 +22,5 @@ for i in $data_sets
 			done
 		cd ..
 	done
+
+python primewords_md.py

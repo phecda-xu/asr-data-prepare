@@ -18,18 +18,18 @@ wav_list = [i for i in os.listdir(os.path.join(data_path, 'data')) if i.endswith
 data = pd.DataFrame()
 
 data["wav"] = wav_list
-data["wav_path"] = data.wav.apply(lambda x: "data/{}".format(x))
+data["wav_path"] = data.wav.apply(lambda x: "THCH30/data_thchs30/data/{}".format(x))
 
 
 def read_text(x):
-    path = os.path.join(data_path, x)
+    path = os.path.join(BASE_PATH, x)
     with open("{}.trn".format(path)) as f:
         a = f.readlines()[0].strip('\n').replace(" ", "")
     return a
 
 
 def read_wav(x):
-    path = os.path.join(data_path, x)
+    path = os.path.join(BASE_PATH, x)
     sig,sr = sf.read(path)
     duration = round(float(len(sig))/float(sr), 3)
     return duration

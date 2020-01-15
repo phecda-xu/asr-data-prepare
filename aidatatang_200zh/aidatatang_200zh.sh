@@ -3,7 +3,6 @@
 tar -xzvf aidatatang_200zh.tgz
 
 path=aidatatang_200zh/corpus
-transcrip_path=aidatatang_200zh/transcript
 
 files=$(ls $path)
 for setname in $files
@@ -22,3 +21,5 @@ for setname in $files
                 rm $gzfilepath
             done
     done
+
+python data_tang_process.py
