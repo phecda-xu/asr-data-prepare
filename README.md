@@ -45,8 +45,8 @@ $ sh aishell_1_process.sh
 |data set|durations|wav_num|
 |--|--|--|
 |MAGICDATA Mandarin Chinese Read Speech Corpus|754.71 hour|609522|
-|aidatatang_200zh|200.37 hour||
-|Primewords Chinese Corpus Set 1|98.95 hour||
+|aidatatang_200zh|200.37 hour|237266|
+|Primewords Chinese Corpus Set 1|98.95 hour|50385|
 |ST-CMDS-2017|109.73 hour|102600|
 |THCH30|34.16 hour|13388|
 |AISHELL-1|178.97 hour|141600|
