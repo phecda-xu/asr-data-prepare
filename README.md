@@ -40,6 +40,13 @@ $ sh thch30_process.sh
 $ sh aishell_1_process.sh
 ```
 
+### 1300hour manifest
+
+```
+# should in docker
+$ python 1300hour_manifest_generate.py
+```
+
 ## More info
 
 |data set|durations|wav_num|
