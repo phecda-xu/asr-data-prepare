@@ -1,14 +1,35 @@
 
 # coding: utf-8
 
+import os
+import re
 import pandas as pd
 import soundfile as sf
-import os
+from pypinyin import lazy_pinyin
 
 
 BASE_PATH = os.getcwd()
 
 data_path = os.path.join(BASE_PATH, 'magic_data')
+
+
+def pinyin_cover(char):
+    if 'zh' in char:
+        char = char.replace("zh", "z")
+    char = char.replace("z", "z-zh")
+    if 'ch' in char:
+        char = char.replace("ch", "c")
+    char = char.replace("c", "c-ch")
+    if 'sh' in char:
+        char = char.replace("sh", "s")
+    char = char.replace("s", "s-sh")
+    if 'l' in char:
+        char = char.replace("l", "n")
+    if 'ing' in char:
+        char = char.replace("ing", "in")
+    char = char.replace("in", "in-ing")
+    return char
+
 
 real_wav_list = []
 for data_set in ["train", "test", "dev"]:
@@ -27,7 +48,7 @@ for data_set in ["train", "test", "dev"]:
 wav_txt_dic = {}
 for i in TRANS_list:
     wav_file, person, txt = i.strip('\n').split('\t')
-    wav_txt_dic[wav_file] = txt
+    wav_txt_dic[wav_file] = re.sub('[^\w\u4e00-\u9fff]+', '', txt)
 
 print('total files in TRANS {}'.format(len(TRANS_list)))
 
@@ -57,6 +78,7 @@ data['wav'] = wav_file_list
 data['wav_path'] = path_list
 data['durations'] = durations_list
 data['txt'] = data.wav.apply(lambda x: wav_txt_dic[x])
+data['pinyin'] =  data.txt.apply(lambda x: ' '.join([pinyin_cover(i) for i in lazy_pinyin(x)]))
 
 print('total duration is {}'.format(round(float(sum(data.durations))/3600.0, 3)))
 
