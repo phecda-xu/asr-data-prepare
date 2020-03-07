@@ -90,8 +90,8 @@ print('num of test_manifest is {}'.format(len(test_manifest_list)))
 
 print('prepare aishell_dev...')
 dev_manifest_list.extend(aishell_dev.apply(lambda x: json.dumps({'audio_filepath':'{}/{}'.format(path_prefix, x[1]), 
-                                                                  'duration':x[2],
-                                                                  'text':x[4]}, ensure_ascii=False), axis=1))
+                                                                 'duration':x[2],
+                                                                 'text':x[4]}, ensure_ascii=False), axis=1))
 
 print('num of dev_manifest is {}'.format(len(dev_manifest_list)))
 
