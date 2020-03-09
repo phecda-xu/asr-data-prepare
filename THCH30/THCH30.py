@@ -19,7 +19,7 @@ wav_list = [i for i in os.listdir(os.path.join(data_path, 'data')) if i.endswith
 data = pd.DataFrame()
 
 data["wav"] = wav_list
-data["wav_path"] = data.wav.apply(lambda x: "THCH30/data_thchs30/data/{}".format(x))
+data["wav_path"] = data.wav.apply(lambda x: "thch30/THCH30/data_thchs30/data/{}".format(x))
 
 
 def read_text(x):
