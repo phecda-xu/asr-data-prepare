@@ -47,7 +47,7 @@ for data_set in os.listdir(data_path):
             if wav_file.endswith('.wav'):
                 data_set_list.append(data_set)
                 wav_list.append(wav_file)
-                path_list.append("aidatatang_200zh/corpus/{}/{}/{}".format(data_set, person, wav_file))
+                path_list.append("aidatatang_200zh/aidatatang_200zh/corpus/{}/{}/{}".format(data_set, person, wav_file))
                 sig, sr = sf.read(os.path.join(data_path, '{}/{}/{}'.format(data_set, person, wav_file)))
                 duration = round(float(len(sig))/float(sr), 3)
                 duration_list.append(duration)
