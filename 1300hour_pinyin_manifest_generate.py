@@ -35,7 +35,7 @@ dev_manifest_list = []
 print('add magic_data...')
 train_manifest_list.extend(magic_data.apply(lambda x: json.dumps({'audio_filepath':'{}/{}'.format(path_prefix, x[1]), 
                                                                   'duration':x[2],
-                                                                  'text':x[3]}, ensure_ascii=False), axis=1))
+                                                                  'text':x[4]}, ensure_ascii=False), axis=1))
 
 print('num of train_manifest is {}'.format(len(train_manifest_list)))
 
@@ -43,7 +43,7 @@ print('num of train_manifest is {}'.format(len(train_manifest_list)))
 print('add thch30_data...')
 train_manifest_list.extend(thch30_data.apply(lambda x: json.dumps({'audio_filepath':'{}/{}'.format(path_prefix, x[1]), 
                                                                    'duration':x[4],
-                                                                   'text':x[2]}, ensure_ascii=False), axis=1))
+                                                                   'text':x[3]}, ensure_ascii=False), axis=1))
 
 print('num of train_manifest is {}'.format(len(train_manifest_list)))
 
@@ -51,7 +51,7 @@ print('num of train_manifest is {}'.format(len(train_manifest_list)))
 print('add aidatatang_data...')
 train_manifest_list.extend(aidatatang_data.apply(lambda x: json.dumps({'audio_filepath':'{}/{}'.format(path_prefix, x[1]), 
                                                                        'duration':x[2],
-                                                                       'text':x[3]}, ensure_ascii=False), axis=1))
+                                                                       'text':x[4]}, ensure_ascii=False), axis=1))
 
 print('num of train_manifest is {}'.format(len(train_manifest_list)))
 
@@ -59,7 +59,7 @@ print('num of train_manifest is {}'.format(len(train_manifest_list)))
 print('add primewords_data...')
 train_manifest_list.extend(primewords_data.apply(lambda x: json.dumps({'audio_filepath':'{}/{}'.format(path_prefix, x[6]),
                                                                        'duration':x[2],
-                                                                       'text':x[3]}, ensure_ascii=False), axis=1))
+                                                                       'text':x[5]}, ensure_ascii=False), axis=1))
 
 print('num of train_manifest is {}'.format(len(train_manifest_list)))
 
@@ -67,7 +67,7 @@ print('num of train_manifest is {}'.format(len(train_manifest_list)))
 print('add aishell_train...')
 train_manifest_list.extend(aishell_train.apply(lambda x: json.dumps({'audio_filepath':'{}/{}'.format(path_prefix, x[1]), 
                                                                      'duration':x[2],
-                                                                     'text':x[4]}, ensure_ascii=False), axis=1))
+                                                                     'text':x[5]}, ensure_ascii=False), axis=1))
 
 print('num of train_manifest is {}'.format(len(train_manifest_list)))
 
@@ -75,7 +75,7 @@ print('num of train_manifest is {}'.format(len(train_manifest_list)))
 print('add stcmd_data...')
 train_manifest_list.extend(stcmd_data.apply(lambda x: json.dumps({'audio_filepath':'{}/{}'.format(path_prefix, x[3]),
                                                                   'duration':x[4],
-                                                                  'text':x[1]}, ensure_ascii=False), axis=1))
+                                                                  'text':x[2]}, ensure_ascii=False), axis=1))
 
 print('num of train_manifest is {}'.format(len(train_manifest_list)))
 
@@ -83,7 +83,7 @@ print('num of train_manifest is {}'.format(len(train_manifest_list)))
 print('prepare aishell_test...')
 test_manifest_list.extend(aishell_test.apply(lambda x: json.dumps({'audio_filepath':'{}/{}'.format(path_prefix, x[1]), 
                                                                    'duration':x[2],
-                                                                   'text':x[4]}, ensure_ascii=False), axis=1))
+                                                                   'text':x[5]}, ensure_ascii=False), axis=1))
 
 print('num of test_manifest is {}'.format(len(test_manifest_list)))
 
@@ -91,7 +91,7 @@ print('num of test_manifest is {}'.format(len(test_manifest_list)))
 print('prepare aishell_dev...')
 dev_manifest_list.extend(aishell_dev.apply(lambda x: json.dumps({'audio_filepath':'{}/{}'.format(path_prefix, x[1]), 
                                                                  'duration':x[2],
-                                                                 'text':x[4]}, ensure_ascii=False), axis=1))
+                                                                 'text':x[5]}, ensure_ascii=False), axis=1))
 
 print('num of dev_manifest is {}'.format(len(dev_manifest_list)))
 
