@@ -40,7 +40,7 @@ for wav_name in os.listdir(os.path.join(data_path, 'wav')):
     with open(os.path.join(data_path, 'txt/{}'.format(wav_name.replace('wav','txt')))) as f:
         trans = f.readlines()[0]
         text_list.append(trans)
-        pinyin_text = ' '.join([pinyin_cover(i) for i in lazy_pinyin(trans)])
+        pinyin_text = ' '.join([pinyin_cover(i) for i in lazy_pinyin(trans, errors='ignore')])
         pinyin_list.append(pinyin_text)
         wav_path_list.append('ST-CMDS-20170001_1-OS/ST-CMDS-20170001_1-OS/wav/{}'.format(wav_name))
         sig, _ = sf.read(os.path.join(data_path, 'wav/{}'.format(wav_name)))

@@ -23,14 +23,14 @@ data["wav_path"] = data.wav.apply(lambda x: "thch30/THCH30/data_thchs30/data/{}"
 
 
 def read_text(x):
-    path = os.path.join(BASE_PATH, x)
+    path = os.path.join(os.path.dirname(BASE_PATH), x)
     with open("{}.trn".format(path)) as f:
         a = f.readlines()[0].strip('\n').replace(" ", "")
     return a
 
 
 def read_wav(x):
-    path = os.path.join(BASE_PATH, x)
+    path = os.path.join(os.path.dirname(BASE_PATH), x)
     sig,sr = sf.read(path)
     duration = round(float(len(sig))/float(sr), 3)
     return duration
@@ -55,7 +55,7 @@ def pinyin_cover(char):
 
 
 data["txt"] = data.wav_path.apply(lambda x:read_text(x))
-data["pinyin"] = data.txt.apply(lambda x : ' '.join([pinyin_cover(i) for i in lazy_pinyin(x)]))
+data["pinyin"] = data.txt.apply(lambda x : ' '.join([pinyin_cover(i) for i in lazy_pinyin(x, errors='ignore')]))
 data["durations"] = data.wav_path.apply(lambda x:read_wav(x))
 
 total_duration = round(sum(data.durations)/3600, 4)

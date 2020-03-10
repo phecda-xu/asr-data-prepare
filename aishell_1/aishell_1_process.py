@@ -45,7 +45,7 @@ for i in sorted(text):
     wav_name_list.append(wav_name)
     txt = i[16:].strip('\n').replace(" ", '')
     text_list.append(txt)
-    text_pinyin = ' '.join([pinyin_cover(i) for i in lazy_pinyin(txt)])
+    text_pinyin = ' '.join([pinyin_cover(i) for i in lazy_pinyin(txt, errors='ignore')])
     pinyin_list.append(text_pinyin)
 
 wav_list = []

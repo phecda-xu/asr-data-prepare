@@ -54,7 +54,7 @@ for data_set in os.listdir(data_path):
                 text_path = os.path.join(data_path, '{}/{}/{}'.format(data_set, person, wav_file.replace('wav', 'txt')))
                 txt = read_text(text_path)
                 text_list.append(txt)
-                text_pinyin = ' '.join([pinyin_cover(i) for i in lazy_pinyin(txt)])
+                text_pinyin = ' '.join([pinyin_cover(i) for i in lazy_pinyin(txt, errors='ignore')])
                 pinyin_list.append(text_pinyin)
 
 

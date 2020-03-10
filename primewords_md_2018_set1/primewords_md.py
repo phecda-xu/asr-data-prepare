@@ -40,7 +40,7 @@ new_data = data.drop_duplicates()
 new_data = new_data.rename(columns={"file":"wav", "length":"durations", "text":"txt"})
 
 new_data['txt'] = new_data.txt.apply(lambda x : re.sub('[^\w\u4e00-\u9fff]+', '', x))
-new_data['pinyin'] = new_data.txt.apply(lambda x : ' '.join([pinyin_cover(i) for i in lazy_pinyin(x)]))
+new_data['pinyin'] = new_data.txt.apply(lambda x : ' '.join([pinyin_cover(i) for i in lazy_pinyin(x, errors='ignore')]))
 new_data["wav_path"] = new_data.wav.apply(lambda x:"primewords_md_2018_set1/primewords_md_2018_set1/wav/{}".format(x))
 
 total_hour = round(sum([float(i) for i in list(new_data.durations)])/3600.0,2)

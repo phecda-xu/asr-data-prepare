@@ -48,7 +48,7 @@ for data_set in ["train", "test", "dev"]:
 wav_txt_dic = {}
 for i in TRANS_list:
     wav_file, person, txt = i.strip('\n').split('\t')
-    wav_txt_dic[wav_file] = re.sub('[^\w\u4e00-\u9fff]+', '', txt)
+    wav_txt_dic[wav_file] = re.sub('[^\w\u4e00-\u9fff]+', '', txt.replace('[FIL]', '').replace('[SPK]', ''))
 
 print('total files in TRANS {}'.format(len(TRANS_list)))
 
@@ -78,7 +78,7 @@ data['wav'] = wav_file_list
 data['wav_path'] = path_list
 data['durations'] = durations_list
 data['txt'] = data.wav.apply(lambda x: wav_txt_dic[x])
-data['pinyin'] =  data.txt.apply(lambda x: ' '.join([pinyin_cover(i) for i in lazy_pinyin(x)]))
+data['pinyin'] = data.txt.apply(lambda x: ' '.join([pinyin_cover(i) for i in lazy_pinyin(x, errors='ignore')]))
 
 print('total duration is {}'.format(round(float(sum(data.durations))/3600.0, 3)))
 
